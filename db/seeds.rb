@@ -7,4 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Category.create(name: "My Category")
+10.times do |category|
+  Category.create(name: "My Category #{category + 1}")
+end
+
+puts "10 categories created"
