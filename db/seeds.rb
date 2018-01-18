@@ -20,7 +20,7 @@ end
 puts "10 decks created"
 
 25.times do |card| 
-  Card.create(question: "Question number #{card + 1}", answer: "Answer number #{card + 1}")
+  Card.create(question: "Question number #{card + 1}", answer: "Answer number #{card + 1}", deck_id: 1)
 end
 
 puts "25 cards created"
