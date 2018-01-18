@@ -1,12 +1,14 @@
 <h1>Categories</h1>
 
-<% @categories.each do |category| %>
-  <div>
-    <%= category.name %> | 
-    <%= link_to "View Category", category %> | 
-    <%= link_to "Edit Category", edit_category_path(category) %>
-  </div>
-<% end %>
+<%= link_to "logout", destroy_user_session_path, method: :delete %>
+ 
+  <% @user_categories.each do |category| %>
+    <div>
+      <%= category.name %> | 
+      <%= link_to "View Category", category %> | 
+      <%= link_to "Edit Category", edit_category_path(category) %>
+    </div>
+  <% end %>
 
 <div>
   <%= link_to "Add Category", new_category_path %>

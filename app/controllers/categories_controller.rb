@@ -1,9 +1,14 @@
 class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @categories = Category.all
+    if current_user.categories != nil
+      @user_categories = current_user.categories
+    else
+      @user_categories = create_category
+    end
   end
 
   def show
@@ -18,6 +23,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+    @category.user_id = current_user.id
     respond_to do |format|
       if @category.save
         format.html { redirect_to categories_path, notice: 'Category successfully added.' }
@@ -47,10 +53,14 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :user_id)
   end
 
   def set_category
     @category = Category.find(params[:id])
+  end
+
+  def create_category
+    Category.create!(name: "Example Category", user_id: current_user.id)
   end
 end
