@@ -14,7 +14,7 @@ end
 puts "10 categories created"
 
 10.times do |deck| 
-  Deck.create(name: "Deck Number #{deck + 1}")
+  Deck.create(name: "Deck Number #{deck + 1}", category_id: 1)
 end
 
 puts "10 decks created"

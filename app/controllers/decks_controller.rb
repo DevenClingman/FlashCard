@@ -46,7 +46,7 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:name)
+    params.require(:deck).permit(:name, :category_id)
   end
 
   def set_deck
