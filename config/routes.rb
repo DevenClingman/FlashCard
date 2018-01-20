@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  resources :cards
-  resources :decks
-  resources :categories
+  
+  resources :categories do
+    resources :decks do
+      resources :cards do
+
+      end
+    end
+  end
+
+
 
   root to: 'categories#index'
 

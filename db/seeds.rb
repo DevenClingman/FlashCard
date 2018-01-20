@@ -11,20 +11,17 @@
 end
 
 
-10.times do |category|
-  Category.create(name: "My Category #{category + 1}", user_id: 1)
+1.times do |category|
+  Category.create!(name: "Category", user_id: 1)
 end
 
-puts "10 categories created"
+puts "1 category created"
 
-10.times do |deck| 
-  Deck.create(name: "Deck Number #{deck + 1}", category_id: 1)
+2.times do |deck|
+  Deck.create!(name: "Deck#{deck+1}", category_id: 1)
 end
 
-puts "10 decks created"
-
-25.times do |card| 
-  Card.create(question: "Question number #{card + 1}", answer: "Answer number #{card + 1}", deck_id: 1)
+3.times do |card|
+  Card.create!(question: "Question", answer: "Answer", deck_id: 1)
 end
 
-puts "25 cards created"

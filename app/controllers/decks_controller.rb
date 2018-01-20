@@ -9,6 +9,7 @@ class DecksController < ApplicationController
   end
 
   def new
+    byebug
     @deck = Deck.new
   end
 
@@ -17,6 +18,7 @@ class DecksController < ApplicationController
 
   def create
     @deck = Deck.new(deck_params)
+    byebug
     respond_to do |format|
       if @deck.save
         format.html { redirect_to decks_path, notice: 'Deck successfully added.' }
@@ -46,7 +48,7 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:name, :category_id)
+    params.require(:deck).permit(:name)
   end
 
   def set_deck
