@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    byebug
   end
 
   def new
@@ -57,7 +58,6 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-    byebug
     @category = Category.find(params[:id])
   end
 
