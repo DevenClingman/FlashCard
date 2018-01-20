@@ -12,7 +12,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    byebug
   end
 
   def new

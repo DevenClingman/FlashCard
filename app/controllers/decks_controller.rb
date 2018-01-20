@@ -2,6 +2,8 @@ class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
 
   def index
+    @category = Category.find(params[:category_id])
+    @category_id = params[:category_id]
     @decks = Deck.all
   end
 
@@ -9,7 +11,7 @@ class DecksController < ApplicationController
   end
 
   def new
-    byebug
+    @category_id = params[:category_id]
     @deck = Deck.new
   end
 
@@ -17,8 +19,10 @@ class DecksController < ApplicationController
   end
 
   def create
-    @deck = Deck.new(deck_params)
     byebug
+    @category_id = params[:category_id]
+    @deck = Deck.new(deck_params)
+    @deck.category_id = @category_id
     respond_to do |format|
       if @deck.save
         format.html { redirect_to decks_path, notice: 'Deck successfully added.' }
