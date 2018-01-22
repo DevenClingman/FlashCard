@@ -1,8 +1,8 @@
 class DecksController < ApplicationController
-  before_action :set_deck, only: [:show, :edit, :update, :destroy]
+  before_action :set_deck, :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @category = Category.find(params[:category_id])
+    set_category
     @category_id = params[:category_id]
     @decks = Deck.all
   end
@@ -12,14 +12,12 @@ class DecksController < ApplicationController
 
   def new
     @deck = Deck.new
-    @card = Card.new
   end
 
   def edit
   end
 
   def create
-    byebug
     @category_id = params[:category_id]
     @deck = Deck.new(deck_params)
     @deck.category_id = @category_id
@@ -35,7 +33,7 @@ class DecksController < ApplicationController
   def update
     respond_to do |format|
       if @deck.update(deck_params)
-        format.html { redirect_to @deck, notice: "Deck updated." }
+        format.html { redirect_to category_decks_path(@category.id, @deck), notice: "Deck updated." }
       else
         format.html { render :edit }
       end
@@ -45,7 +43,7 @@ class DecksController < ApplicationController
   def destroy
     @deck.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "Deck Deleted" }
+      format.html { redirect_to category_decks_path(@category.id), notice: "Deck Deleted" }
     end
   end 
 
@@ -57,5 +55,9 @@ class DecksController < ApplicationController
 
   def set_deck
     @deck = Deck.find(params[:id])
+  end
+
+  def set_category
+    @category = Category.find(params[:category_id])
   end
 end

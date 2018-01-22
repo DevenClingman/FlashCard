@@ -1,0 +1,15 @@
+<h1><%= @deck.name %></h1>
+
+<% @cards.each do |card| %>
+  <div>
+    <%= card.question %>
+  </div>
+  <div>
+    <%= card.answer %>
+  </div>
+  <div>
+    <%= link_to "Edit Card", edit_category_deck_card_path(@category.id, @deck.id, card) %>
+  </div>
+  <hr>
+  <hr>
+<% end %>

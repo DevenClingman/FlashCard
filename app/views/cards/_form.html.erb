@@ -1,6 +1,6 @@
-<%= form_for(@card) do |f| %>
+<%= form_for(@card, url: {action: "update"}) do |f| %>
   <% if @card.errors.any? %>
-    <% @category.errors.full_messages.each do |error| %>
+    <% @card.errors.full_messages.each do |error| %>
       <%= alert_generator error %> 
     <% end %>
   <% end %>
