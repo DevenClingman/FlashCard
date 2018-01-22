@@ -11,8 +11,8 @@ class DecksController < ApplicationController
   end
 
   def new
-    @category_id = params[:category_id]
     @deck = Deck.new
+    @card = Card.new
   end
 
   def edit
@@ -25,7 +25,7 @@ class DecksController < ApplicationController
     @deck.category_id = @category_id
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to decks_path, notice: 'Deck successfully added.' }
+        format.html { redirect_to category_decks_path(@category_id), notice: 'Deck successfully added.' }
       else
         format.html { render :new }
       end
@@ -45,14 +45,14 @@ class DecksController < ApplicationController
   def destroy
     @deck.destroy
     respond_to do |format|
-      format.html { redirect_to decks_path, notice: "Deck Deleted" }
+      format.html { redirect_to root_path, notice: "Deck Deleted" }
     end
   end 
 
   private
 
   def deck_params
-    params.require(:deck).permit(:name)
+    params.require(:deck).permit(:name, :category_id)
   end
 
   def set_deck
