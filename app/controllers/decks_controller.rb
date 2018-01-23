@@ -21,6 +21,7 @@ class DecksController < ApplicationController
     @category_id = params[:category_id]
     @deck = Deck.new(deck_params)
     @deck.category_id = @category_id
+    @deck.user_id = current_user.id
     respond_to do |format|
       if @deck.save
         format.html { redirect_to category_decks_path(@category_id), notice: 'Deck successfully added.' }
@@ -50,7 +51,7 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:name, :category_id)
+    params.require(:deck).permit(:name, :category_id, :user_id)
   end
 
   def set_deck

@@ -2,6 +2,7 @@ class CardsController < ApplicationController
   before_action :set_card, :set_deck, :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
+    byebug
     set_category
     set_deck
     @cards = Card.all
@@ -23,6 +24,8 @@ class CardsController < ApplicationController
     set_deck
     @card = Card.new(card_params)
     @card.deck_id = @deck.id
+    @card.category_id = @category.id
+    @card.user_id = current_user.id
     respond_to do |format|
       if @card.save
         format.html { redirect_to category_deck_cards_path(@category.id, @deck.id, @card), notice: 'Card successfully added.' }
@@ -52,7 +55,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:question, :answer, :deck_id)
+    params.require(:card).permit(:question, :answer, :deck_id, :category_id, :user_id)
   end
 
   def set_card
