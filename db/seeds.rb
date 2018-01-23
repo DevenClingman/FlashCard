@@ -25,3 +25,7 @@ end
   Card.create!(question: "Question", answer: "Answer", deck_id: 1)
 end
 
+1.times do |card| 
+  Card.create!(question: "How do you quit and save at the same time?", answer: ":wq", deck_id: 1) 
+end
+
