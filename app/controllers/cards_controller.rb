@@ -19,7 +19,10 @@ class CardsController < ApplicationController
   end
 
   def create
+    set_category
+    set_deck
     @card = Card.new(card_params)
+    @card.deck_id = @deck.id
     respond_to do |format|
       if @card.save
         format.html { redirect_to category_deck_cards_path(@category.id, @deck.id, @card), notice: 'Card successfully added.' }
@@ -49,7 +52,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:question, :answer)
+    params.require(:card).permit(:question, :answer, :deck_id)
   end
 
   def set_card
