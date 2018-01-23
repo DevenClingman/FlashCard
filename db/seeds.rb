@@ -18,7 +18,7 @@ end
 puts "1 category created"
 
 2.times do |deck|
-  Deck.create!(name: "Deck#{deck+1}", category_id: 1)
+  Deck.create!(name: "Deck#{deck+1}", category_id: 1, user_id: 1)
 end
 
 3.times do |card|
