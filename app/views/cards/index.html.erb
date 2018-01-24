@@ -9,6 +9,7 @@
   </div>
   <div>
     <%= link_to "Edit Card", edit_category_deck_card_path(@category.id, @deck.id, card) %>
+    <%= link_to "Delete Card", category_deck_card_path(@category.id, @deck.id, card), method: :delete, data: { confirm: "Are you sure you want to delete this card?" } %>
   </div>
   <hr>
   <hr>
