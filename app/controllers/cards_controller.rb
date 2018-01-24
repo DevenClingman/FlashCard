@@ -2,7 +2,6 @@ class CardsController < ApplicationController
   before_action :set_card, :set_deck, :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    byebug
     set_category
     set_deck
     @cards = Card.all
