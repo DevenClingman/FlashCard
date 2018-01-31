@@ -5,18 +5,16 @@
     <% end %>
   <% end %>
 
-  <div>
-    <%= f.label :question %>
-    <%= f.text_area :question, rows: 15 %>
+  <div class="form-group">
+    <%= f.text_area :question, rows: 15, class: "form-control", placeholder: "Question" %>
   </div>
 
-  <div>
-    <%= f.label :answer %>
-    <%= f.text_area :answer, rows: 15 %>
+  <div class="form-group">
+    <%= f.text_area :answer, rows: 15, class: "form-control", placeholder: "Answer" %>
   </div>
 
-  <div>
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit nil, class: "btn-block btn-primary" %>
   </div>
 
 <% end %>
