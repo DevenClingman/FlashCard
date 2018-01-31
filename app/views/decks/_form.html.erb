@@ -5,13 +5,12 @@
     <% end %>
   <% end %>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit nil, class: "btn-block btn-primary" %>
   </div>
 
 <% end %>
