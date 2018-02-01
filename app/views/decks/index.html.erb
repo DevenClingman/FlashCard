@@ -1,4 +1,20 @@
 <div class="container">
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to "Categories", categories_path %>
+  </li>
+  <li class="breadcrumb-item">
+    <%= @category.name %>
+  </li>
+</ol>
+
+
+
+
+
+
+
   <div class="text-center">
     <h1>Decks for your <%= @category.name %> Category </h1>
     <%= link_to "Add Deck", new_category_deck_path %>  
