@@ -1,14 +1,20 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 .categories {
-  display: inline-block;
-  width: 27%;
-  margin: 25px;
-  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   background: #bfe9ff;
+  font-size: 3vw;
+  height: 500px;
+  padding-right: 25%;
+  padding-left: 25%;
 }
 
-.hidden {
-  display: none;
+.card-links {
+  font-size: 0.75em;
 }
+

@@ -1,6 +1,5 @@
 $( document ).ready(function() {
-  $('.angle-down').click(function() {
-    $(this).next().slideToggle(500);
-  });
+  var cardAnswer = $('.card-answer');
+  console.log(cardAnswer[4].textContent);
 });
 
