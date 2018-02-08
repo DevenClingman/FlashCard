@@ -59,8 +59,4 @@ class CategoriesController < ApplicationController
   def set_category
     @category = Category.find(params[:id])
   end
-
-  def create_category
-    Category.create!(name: "Example Category", user_id: current_user.id)
-  end
 end
