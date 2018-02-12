@@ -13,34 +13,16 @@
     </li>
   </ol>
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">  <div class="carousel-item active">
-    <% count = 0%>
-    <% @deck.cards.each do |card|%>
-      <div class="carousel-item cards">
-        <div class="card text-center switch">
-          <div class="card-block cards card-question<%= active?(count) %>">
-            <%= card.question %>
-          </div>
-          <div class="card-block cards card-answer" style="display: none;">
-            <%= card.answer %>
-          </div>
-        </div>
+  <% @deck.cards.each do |card|%>
+    <div class="card categories text-center">
+      <div class="card-block">
+        <%= card.question.slice(0,20) %>...
       </div>
-      <% count += 1%>
-    <% end %>       
-  </div>
-  <a class="carousel-control-prev button-switch" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next button-switch" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+      <%= link_to "View Card", category_deck_card_path(@category.id, @deck.id, card) %>  
+    </div>
+  <% end %>
 
   <div>
     <%= link_to "Add New Card", new_category_deck_card_path %>
-  </div>  
-</div>
+  </div>
+</div>  

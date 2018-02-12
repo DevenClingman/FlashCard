@@ -1,0 +1,35 @@
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to "Categories", categories_path%>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to @category.name, category_decks_path(@category.id) %>
+    </li>
+    <li class="breadcrumb-item active">
+      <%= link_to @deck.name, category_decks_path(@category.id) %>
+    </li>
+  </ol>
+
+
+  <h1 class="text-center">Card</h1>
+  <div class="card">
+    <div class="card-block flash-card text-center switch">  
+        <h3 class="card-question">
+          <div>
+            <h2>Question</h2>
+          </div>
+          <hr>
+          <%= @card.question %>
+        </h3>
+        <h3 class="hide card-answer">
+          <div>
+            <h2>Answer</h2>
+          </div>
+          <hr>
+          <%= @card.answer %>
+        </h3>
+    </div>
+  </div>  
+</div>

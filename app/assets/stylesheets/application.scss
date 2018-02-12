@@ -34,3 +34,19 @@
   padding-left: 25%;
 }
 
+.flash-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background: #ffffa3;
+}
+
+.hide{
+  display: none;
+}
+
+.card-question:hover, .card-answer:hover{
+  cursor: pointer;
+}
+
