@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, :set_deck, :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_card, :set_deck, :set_category, only: [:show, :edit, :update, :destroy, :next, :previous]
 
   def index
     set_category
@@ -49,7 +49,7 @@ class CardsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to category_deck_cards_path(@category.id, @deck.id, @card), notice: "Card Deleted" }
     end
-  end 
+  end
 
   private
 

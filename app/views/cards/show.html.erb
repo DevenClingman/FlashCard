@@ -13,7 +13,9 @@
   </ol>
 
 
-  <h1 class="text-center">Card</h1>
+  <h1 class="text-center">
+    <%= @deck.name %>
+  </h1>
   <div class="card">
     <div class="card-block flash-card text-center switch">  
         <h3 class="card-question">
@@ -30,6 +32,12 @@
           <hr>
           <%= @card.answer %>
         </h3>
+    </div>
+    <div>
+      <%= link_to "< Previous", category_deck_card_path( @category.id, @deck.id, @card.previous ) if @card.previous %>
+    </div>
+    <div>
+      <%= link_to "Next >", category_deck_card_path( @category.id, @deck.id, @card.next ) if @card.next %>
     </div>
   </div>  
 </div>

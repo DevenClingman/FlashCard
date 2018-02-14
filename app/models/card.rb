@@ -3,11 +3,11 @@ class Card < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  def self.next
-    Card.next(self.id).first
+  def next
+    Card.where( "id > ? AND deck_id= ?", self.id, self.deck_id ).first
   end
 
-  def self.previous
-    Card.previous(self.id).first
+  def previous
+    Card.where( "id < ? AND deck_id = ?", self.id, self.deck_id ).last
   end
 end
