@@ -12,32 +12,33 @@
     </li>
   </ol>
 
-
   <h1 class="text-center">
     <%= @deck.name %>
   </h1>
-  <div class="card">
-    <div class="card-block flash-card text-center switch">  
-        <h3 class="card-question">
-          <div>
-            <h2>Question</h2>
-          </div>
-          <hr>
-          <%= @card.question %>
-        </h3>
-        <h3 class="hide card-answer">
-          <div>
-            <h2>Answer</h2>
-          </div>
-          <hr>
-          <%= @card.answer %>
-        </h3>
-    </div>
-    <div>
-      <%= link_to "< Previous", category_deck_card_path( @category.id, @deck.id, @card.previous ) if @card.previous %>
-    </div>
-    <div>
-      <%= link_to "Next >", category_deck_card_path( @category.id, @deck.id, @card.next ) if @card.next %>
-    </div>
-  </div>  
+    <div class="card flash-card-container">
+      <div class="card-block flash-card text-center switch">  
+          <h3 class="card-question">
+            <div>
+              <h2>Question</h2>
+            </div>
+            <hr>
+            <%= @card.question %>
+          </h3>
+          <h3 class="hide card-answer">
+            <div>
+              <h2>Answer</h2>
+            </div>
+            <hr>
+            <%= @card.answer %>
+          </h3>
+      </div>
+      <div class="navigators">
+        <h1 id="prev-nav">
+          <%= link_to fa_icon('arrow-circle-left'), category_deck_card_path( @category.id, @deck.id, @card.previous ) if @card.previous %>
+        </h1>
+        <h1 id="next-nav">
+          <%= link_to fa_icon('arrow-circle-right'), category_deck_card_path( @category.id, @deck.id, @card.next ) if @card.next %>
+        </h1>
+      </div>  
+    </div>  
 </div>

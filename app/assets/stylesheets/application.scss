@@ -34,6 +34,10 @@
   padding-left: 25%;
 }
 
+.flash-card-container{
+  background: #ffffa3;
+}
+
 .flash-card {
   display: flex;
   justify-content: center;
@@ -42,11 +46,33 @@
   background: #ffffa3;
 }
 
+.flash-card-container:hover{
+  border-style: solid;
+  border-width: 2px;
+  border-color: blue;
+  cursor: pointer;
+}
+
 .hide{
   display: none;
 }
 
-.card-question:hover, .card-answer:hover{
-  cursor: pointer;
+.navigators{
+  background: #ffffa3;
 }
+
+.navigators > h1{
+  font-size: 5em;
+}
+
+#prev-nav{
+  padding-left: 5%;
+  float: left;
+}
+
+#next-nav{
+  padding-right: 5%;
+  float: right;
+}
+
 
