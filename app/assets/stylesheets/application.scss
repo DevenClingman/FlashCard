@@ -1,6 +1,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
+a:hover{
+  text-decoration: none;
+}
 
 .cards {
   display: flex;
@@ -20,6 +23,13 @@
   padding: 25px;
   margin: 25px;
   background: #bad4fc;
+}
+
+.categories:hover{
+  cursor: pointer;
+  border-style: line;
+  border-radius: 2px;
+  border-color: blue;
 }
 
 .deck-title {
