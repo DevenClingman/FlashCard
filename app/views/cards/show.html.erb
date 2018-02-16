@@ -7,8 +7,11 @@
     <li class="breadcrumb-item">
       <%= link_to @category.name, category_decks_path(@category.id) %>
     </li>
+    <li class="breadcrumb-item">
+      <%= link_to @deck.name, category_deck_cards_path(@category.id, @deck.id) %>
+    </li>
     <li class="breadcrumb-item active">
-      <%= link_to @deck.name, category_decks_path(@category.id) %>
+      <%= @deck.name%> card
     </li>
   </ol>
 
