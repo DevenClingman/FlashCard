@@ -12,11 +12,15 @@
   <hr>
 
   <% @user_categories.each do |category| %>
-    <div class="card categories text-center">
-      <div class="card-block">
-        <h2><%= link_to category.name, category_decks_path(category) %></h2>
-        <h6><%= link_to "Edit Category", edit_category_path(category), class: "btn-sm btn-info" %></h6>
-        <h6><%= link_to "Delete Category", category_path(category), method: :delete, data: {confirm: "Are you sure you want to delete this category? If you do all of its decks and cards will also be deleted."}, class: "btn-sm btn-danger" %></h6>
+    <div class="category-setup text-center">
+      <%= link_to(category_decks_path(category)) do %>
+        <p class="card categories text-center">
+          <%= category.name %><br>
+        </p> 
+      <% end %>
+      <div class="text-center">
+        <%= link_to fa_icon('edit'), edit_category_path(category), class: "btn-sm btn-info" %>
+        <%= link_to fa_icon('trash'), category_path(category), method: :delete, data: { confirm: "Are you sure you want to delete this category? If you do, all of it's decks and cards will also be deleted." }, class: "btn-sm btn-danger" %>
       </div>
     </div>
   <% end %>
