@@ -100,12 +100,18 @@ a:hover{
   float: left;
 }
 
-.navigation > .nav-left {
-  float: left;
-  padding: 2%;
+.navigation {
+  padding: 1%;
+  background: #f7f7f4;
 }
 
-.navigation > .nav-right {
-  float: right;
-  padding: 2%;
+.link-left {
+  float: left;
+  margin-left: 2%;
 }
+
+ .link-right {
+  float: right;
+  margin-right: 2%;
+}
+

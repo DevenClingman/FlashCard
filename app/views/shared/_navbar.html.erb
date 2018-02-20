@@ -1,13 +1,11 @@
-<div class="navigation"> 
-  <div class="nav-left"> 
-    <%= link_to "Home", categories_path %>
+ <div class="row">
+  <div class="col-md-12 navigation">
+    <%= link_to "Home", root_path, class: "link-left" %> 
+    <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "link-right" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "link-right" %> 
+      <%= link_to "Register", new_user_registration_path, class: "link-right" %> 
+    <% end %>
   </div>
-  <div class="nav-right"> 
-   <% if user_signed_in? %>
-     <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-   <% else %>
-     <%= link_to "Login", new_user_session_path %>
-     <%= link_to "Register", new_user_registration_path %>
-   <% end %>
-  </div>
-</div>  
+ </div>
