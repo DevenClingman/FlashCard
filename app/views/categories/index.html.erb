@@ -5,6 +5,13 @@
     </li>
   </ol>
   <div class="text-center">
+    
+    
+    <% if current_user %>
+      <%= current_user.inspect %>
+    <% end %>
+
+
     <h1>Categories</h1>
     <h2>
       <%= link_to fa_icon('plus-circle'), new_category_path %>
