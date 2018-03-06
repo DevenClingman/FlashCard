@@ -8,7 +8,13 @@
     
     
     <% if current_user %>
-      <%= current_user.inspect %>
+      <h1>
+        <% if current_user.first_name.nil? %>
+         Hello  <%= current_user.name.split.first %>
+        <% else %>
+          Hello <%= current_user.first_name %>
+        <% end %>
+      </h1>
     <% end %>
 
 

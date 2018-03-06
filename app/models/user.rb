@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
          :omniauthable, :omniauth_providers => [:facebook]
+  after_initialize :set_defaults
 
 def self.new_with_session(params, session)
     super.tap do |user|
@@ -22,9 +23,14 @@ def self.new_with_session(params, session)
 		end
 	end
 
+  def set_defaults 
+    if !self.name.nil?  
+      self.first_name = self.name.split.first
+      self.last_name = self.name.split.last
+    end 
+  end
 
   has_many :categories, dependent: :destroy
   has_many :decks, dependent: :destroy
   has_many :cards, dependent: :destroy
-
 end
