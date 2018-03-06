@@ -5,6 +5,19 @@
     </li>
   </ol>
   <div class="text-center">
+    
+    
+    <% if current_user %>
+      <h1>
+        <% if current_user.first_name.nil? %>
+         Hello  <%= current_user.name.split.first %>
+        <% else %>
+          Hello <%= current_user.first_name %>
+        <% end %>
+      </h1>
+    <% end %>
+
+
     <h1>Categories</h1>
     <h2>
       <%= link_to fa_icon('plus-circle'), new_category_path %>
