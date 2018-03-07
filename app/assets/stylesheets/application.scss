@@ -1,6 +1,10 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body{
+  
+}
+
 a:hover{
   text-decoration: none;
 }
@@ -124,4 +128,21 @@ a:hover{
   margin: 0 auto;
   float: none;
   padding: 20px;
+} 
+
+/*
+* Footer
+*/
+
+.footer{
+  margin-top: 20px;
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5;
+} 
+
+.footer p:last-child {
+  margin-bottom: 0;
 }
