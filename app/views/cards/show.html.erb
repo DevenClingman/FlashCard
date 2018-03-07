@@ -36,14 +36,14 @@
             <h2>Question</h2>
           </div>
           <hr>
-          <%= @card.question %>
+          <%= markdown @card.question %>
         </h3>
         <h3 class="hide card-answer">
           <div>
             <h2>Answer</h2>
           </div>
           <hr>
-          <%= @card.answer %>
+          <%= markdown @card.answer %>
         </h3>
       </div>
       <div class="navigators">
