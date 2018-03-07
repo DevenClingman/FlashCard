@@ -36,3 +36,5 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'clingman_view_tool', '~> 0.1.0'
+
+ruby "2.4.0"
